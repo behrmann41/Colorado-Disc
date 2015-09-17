@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
 }
 
 a {
@@ -12,5 +13,9 @@ h1 {
 }
 
 .navbar-default {
-  background: black;
+  
+}
+
+.navbar-text {
+ 
 }
