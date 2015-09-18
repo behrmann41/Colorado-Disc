@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h2 New Course
+
+  form(action='/courses', method='post')
+    fieldset
+      legend Input A Course You Have Played
+      div
+        label(for='coursename') Course Name:
+        input(type='text' id='coursename' placeholder='Course Name' name='coursename')
+        label(for='courseloc') Location:
+        input(type='text' id='courseloc' placeholder='Location - ex - Boulder,CO' name='courseloc')
+        label(for='holenums') Number of Holes:
+        input(type='number' id='holenums' name='holenums')
+        label(for='established') Year Established:
+        input(type='text' id='established' name='established')
+
+      div
+        input(type="submit")
+        a(href='/courses') cancel

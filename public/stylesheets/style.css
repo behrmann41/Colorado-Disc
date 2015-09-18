@@ -12,10 +12,6 @@ h1 {
   text-align: center;
 }
 
-.navbar-default {
-  
-}
-
-.navbar-text {
- 
+table, tr, td, th {
+  padding: 5px;
 }

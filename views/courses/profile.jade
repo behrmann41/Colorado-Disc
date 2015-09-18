@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+
+  h1 Your Profile
+
+  form(action='/profile' method='post')
+    p
+      label(for='coursesearch') Search for a Course:
+      input(type='text' id='coursesearch' name='coursesearch' placeholder='search')
+    p
+      input(type='submit')
