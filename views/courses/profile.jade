@@ -10,3 +10,20 @@ block content
       input(type='text' id='coursesearch' name='coursesearch' placeholder='search')
     p
       input(type='submit')
+
+  if updatePage
+
+    table
+        thead
+          tr
+            th Name
+            th Location
+            th Hole Count
+            th Year Established
+        tbody
+          for course in courseSearch
+            tr
+              td= course.name
+              td= course.location
+              td= course.holecount
+              td= course.yearEst
