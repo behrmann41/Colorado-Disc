@@ -2,10 +2,11 @@ extends ../layout
 
 block content
 
-  form(action='/profile/newscore' method='post')
+  form(action='/courses/newscore' method='post')
     fieldset
       legend Input New Round
       p= theCourse.name
+      p= theCourse.lastRoundScore
       p
         label(for='roundscore') Round Score:
         input(type='number' id='roundscore' name='roundscore')

@@ -25,11 +25,25 @@ router.post('/', function (req, res, next) {
   res.redirect('/courses');
 });
 
+router.get('/:id/newscore', function (req, res, next) {
+  discCourses.findOne({_id: req.params.id}, function (err, data){
+    res.render('courses/newscore', {theCourse: data})  
+  })
+})
+
 router.get('/:id', function (req, res, next){
   discCourses.findOne({_id: req.params.id}, function (err, data){
     res.render('courses/show', { title: 'Colorado Disc',
                                  theCourse: data
                                 })
+  })
+})
+
+router.post('/newscore', function (req, res, next){
+  discCourses.updateById(req.params.id, {
+                         $addToSet: { lastRoundScore: 'req.body.roundscore'}
+                          }, function (err, record){
+    res.redirect('/profile')
   })
 })
 

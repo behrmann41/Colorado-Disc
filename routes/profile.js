@@ -17,13 +17,5 @@ router.post('/', function (req, res, next) {
   })
 })
 
-router.get('/:id/newscore', function (req, res, next) {
-  discCourses.findOne({_id: req.params.id}, function (err, data){
-    res.render('courses/newscore', {theCourse: data})  
-  })
-})
-
-//router.post('/newscore', function (req, res, next))
-
 module.exports = router;
 
