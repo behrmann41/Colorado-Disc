@@ -4,7 +4,7 @@ var db = require('monk')('localhost/disc-courses');
 var discCourses = db.get('courses');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   discCourses.find({}, function (err, data){
     res.render('courses/index', { title: 'Colorado Disc',
                                   allCourses: data 
@@ -12,11 +12,11 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/new', function(req, res, next){
+router.get('/new', function (req, res, next){
   res.render('courses/newcourse', { title: 'Colorado Disc' });
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
   discCourses.insert({name: req.body.coursename,
                   location: req.body.courseloc,
                   holecount: req.body.holenums,
@@ -24,5 +24,13 @@ router.post('/', function(req, res, next) {
                 });
   res.redirect('/courses');
 });
+
+router.get('/:id', function (req, res, next){
+  discCourses.findOne({_id: req.params.id}, function (err, data){
+    res.render('courses/show', { title: 'Colorado Disc',
+                                 theCourse: data
+                                })
+  })
+})
 
 module.exports = router;

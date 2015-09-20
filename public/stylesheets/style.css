@@ -15,3 +15,7 @@ h1 {
 table, tr, td, th {
   padding: 5px;
 }
+
+form {
+  display: block;
+}
