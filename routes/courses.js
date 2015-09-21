@@ -39,11 +39,11 @@ router.get('/:id', function (req, res, next){
   })
 })
 
-router.post('/newscore', function (req, res, next){
-  discCourses.updateById(req.params.id, {
-                         $addToSet: { lastRoundScore: 'req.body.roundscore'}
+router.post('/:id/newscore', function (req, res, next){
+  discCourses.update({_id: req.params.id}, {
+                         $addToSet: { lastround: req.body.roundscore}
                           }, function (err, record){
-    res.redirect('/profile')
+    res.redirect('/courses/' + req.params.id)
   })
 })
 

@@ -12,21 +12,25 @@ block content
       input(type='submit')
 
   if updatePage
-
-    table
-        thead
-          tr
-            th Name
-            th Location
-            th Hole Count
-            th Year Established
-        tbody
-          for course in courseSearch
+    section.left
+      table
+          thead
             tr
-              td
-                a(href='/courses/' + course._id)= course.name
-              td= course.location
-              td= course.holecount
-              td= course.yearEst
+              th Name
+              th Location
+              th Hole Count
+              th Year Established
+              th Scores on Course
+          tbody
+            for course in courseSearch
+              tr
+                td
+                  a(href='/courses/' + course._id)= course.name
+                td= course.location
+                td= course.holecount
+                td= course.yearEst
+                td= course.lastround
+    section.right
 
-  a(href='/courses') List of All Courses
+
+  //- a(href='/courses') List of All Courses
