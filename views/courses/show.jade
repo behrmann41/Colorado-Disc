@@ -1,16 +1,25 @@
 extends ../layout
 
 block content
-
   h1= theCourse.name
-  h2 Course Location
-  h3= theCourse.location
-  h2 Number of Holes
-  h3= theCourse.holecount
-  h2 Year Established
-  h3= theCourse.yearEst
-  h2 Scores on Course
-  h3= theCourse.lastround
+  .container
+    section.left
+
+      h2 Course Location
+      h3= theCourse.location
+      h2 Number of Holes
+      h3= theCourse.holecount
+      h2 Year Established
+      h3= theCourse.yearEst
+      h2 Scores on Course
+      h3= theCourse.lastround
 
 
-  a(href='/courses/' + theCourse._id + '/newscore') New Score
+      a(href='/courses/' + theCourse._id + '/newscore') New Score
+
+      form(action="/courses/" + theCourse._id + '/delete', method="post")
+        input(type="submit", class='delete' value="Delete Last Score")
+
+    seciont.right
+
+      div(class="chart")= graph

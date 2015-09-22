@@ -17,11 +17,11 @@ router.get('/new', function (req, res, next){
 });
 
 router.post('/', function (req, res, next) {
-  discCourses.insert({name: req.body.coursename,
-                  location: req.body.courseloc,
-                  holecount: req.body.holenums,
-                  yearEst: req.body.established
-                });
+  discCourses.insert({ name: req.body.coursename,
+                       location: req.body.courseloc,
+                       holecount: req.body.holenums,
+                       yearEst: req.body.established
+                      });
   res.redirect('/courses');
 });
 
@@ -41,7 +41,15 @@ router.get('/:id', function (req, res, next){
 
 router.post('/:id/newscore', function (req, res, next){
   discCourses.update({_id: req.params.id}, {
-                         $addToSet: { lastround: req.body.roundscore}
+                         $push: { lastround: req.body.roundscore}
+                          }, function (err, record){
+    res.redirect('/courses/' + req.params.id)
+  })
+})
+
+router.post('/:id/delete', function (req, res, next){
+  discCourses.update({_id: req.params.id}, {
+                          $pop: { lastround: 1}
                           }, function (err, record){
     res.redirect('/courses/' + req.params.id)
   })

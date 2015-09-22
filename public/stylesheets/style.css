@@ -19,3 +19,27 @@ table, tr, td, th {
 form {
   display: block;
 }
+
+.delete {
+  margin-top: 15px;
+}
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+.left {
+  width: 30%;
+  display: inline-block;
+}
+
+.right {
+  width: 70%;
+  display: inline-block;
+  padding-right: 45px;
+}

@@ -28,9 +28,6 @@ app.use('/', routes);
 app.use('/courses', courses);
 app.use('/profile', profile);
 
-app.use(function(req, res, next){
-  db.courses.createIndex({name: 'text'})
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
