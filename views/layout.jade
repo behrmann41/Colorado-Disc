@@ -5,19 +5,19 @@ html
     link(rel='stylesheet', href='/bootstrap-3.3.5-dist/css/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-
   body
-    .dropdown
-      button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-        | Menu
-        span.caret
-      ul.dropdown-menu(aria-labelledby='dropdownMenu1')
-        li
-          a(href='/') Home
-        li
-          a(href='/courses') Courses
-        li
-          a(href='/profile') Profile
+    header Colorado Disc
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+          | Menu
+          span.caret
+        ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+          li
+            a(href='/') Home
+          li
+            a(href='/courses') Courses
+          li
+            a(href='/profile') Profile
 
     block content
 
