@@ -17,7 +17,8 @@ block content
         tbody
           for course in allCourses
             tr
-              td= course.name
+              td
+                a(href='/courses/' + course._id)= course.name
               td= course.location
               td= course.holecount
               td= course.yearEst
