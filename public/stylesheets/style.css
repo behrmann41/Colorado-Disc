@@ -25,6 +25,11 @@ h1 {
   text-align: center;
 }
 
+p.italic {
+  font-size: 16px;
+  font-style: italic;
+}
+
 table, tr, td, th {
   padding: 5px;
 }

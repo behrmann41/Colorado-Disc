@@ -39,6 +39,12 @@ router.get('/:id', function (req, res, next){
   })
 })
 
+router.get('/:id/data', function (req, res, next) {
+  discCourses.find({_id: req.params.id}, { lastround : 1, _id: 0 } , function (err, data) {
+    res.json(data)
+  })
+})
+
 router.post('/:id/newscore', function (req, res, next){
   discCourses.update({_id: req.params.id}, {
                          $push: { lastround: req.body.roundscore}
