@@ -42,6 +42,7 @@ form {
   margin-top: 15px;
 }
 
+/* chart styling */
 .chart div {
   font: 10px sans-serif;
   background-color: steelblue;
@@ -49,6 +50,10 @@ form {
   padding: 3px;
   margin: 1px;
   color: white;
+}
+
+.chart:hover {
+  fill: brown;
 }
 
 .left {
@@ -61,3 +66,46 @@ form {
   display: inline-block;
   padding-right: 45px;
 }
+
+.homeleft {
+  width: 50%;
+}
+
+.homeright {
+  width: 50%;
+}
+
+img {
+  height: 450px;
+  width: 450px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Line Graph Styling */
+
+/*.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}*/
