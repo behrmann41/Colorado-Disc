@@ -21,12 +21,7 @@ $(function(){
         .domain([(d3.max(input) + 2), d3.min(input)])
         .range([0, 420]);
 
-      var tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function(d) { return d; })
-
-      var grab = d3.select(".chart")
+      d3.select(".chart")
           .selectAll("div")
           .data(input)
           
@@ -34,10 +29,13 @@ $(function(){
           .attr('class', 'bar')
           .style("width", function(d) { return x(d) + "px"; })
           .text(function(d) { return d; })
-          
-      grab.call(tip)
-          
-
+      if (input.length > 0){
+          var mean = d3.mean(input)
+          var avg = d3.select('.left').append('p')
+              .attr('class','mean')
+              .text('Your mean score on this course: ' + mean.toFixed(0))
+              
+      }
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
       console.log('error test', errorThrown);

@@ -2,7 +2,7 @@ extends ../layout
 
 block content
 
-  h1 Your Profile
+  h1 Score Profile
 
   form(action='/profile' method='post')
     p
@@ -12,7 +12,7 @@ block content
       input(type='submit')
 
   if updatePage
-    section
+    section.left
       table
           thead
             tr
@@ -30,7 +30,10 @@ block content
                 td= course.holecount
                 td= course.yearEst
                 td= course.lastround
-    section
+    section.chart
+      //- where chart appears
+    section.bottom
+
 
 
   //- a(href='/courses') List of All Courses
