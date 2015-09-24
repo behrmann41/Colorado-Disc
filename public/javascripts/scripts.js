@@ -18,15 +18,25 @@ $(function(){
       }
       console.log(input);
       var x = d3.scale.linear()
-        .domain([d3.max(input), d3.min(input)])
+        .domain([(d3.max(input) + 2), d3.min(input)])
         .range([0, 420]);
 
-      d3.select(".chart")
+      var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) { return d; })
+
+      var grab = d3.select(".chart")
           .selectAll("div")
           .data(input)
+          
         .enter().append("div")
+          .attr('class', 'bar')
           .style("width", function(d) { return x(d) + "px"; })
-          .text(function(d) { return d; });
+          .text(function(d) { return d; })
+          
+      grab.call(tip)
+          
 
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {

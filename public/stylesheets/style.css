@@ -45,15 +45,24 @@ form {
 /* chart styling */
 .chart div {
   font: 10px sans-serif;
-  background-color: steelblue;
+  background-color: #B0E0E6;
   text-align: right;
   padding: 3px;
   margin: 1px;
   color: white;
 }
 
-.chart:hover {
-  fill: brown;
+.bar:hover {
+  background-color: black;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
 }
 
 .left {
@@ -62,9 +71,11 @@ form {
 }
 
 .right {
-  width: 70%;
+  width: 30%;
   display: inline-block;
   padding-right: 45px;
+  transform: rotate(-90deg);
+  padding-left: 70px;
 }
 
 .homeleft {
@@ -85,14 +96,15 @@ img {
   flex-direction: row;
 }
 
+
 /* Line Graph Styling */
 
 /*.bar {
-  fill: steelblue;
+  fill: #B0E0E6;
 }
-
+*/
 .bar:hover {
-  fill: brown;
+  fill: black;
 }
 
 .axis {
@@ -108,4 +120,4 @@ img {
 
 .x.axis path {
   display: none;
-}*/
+}
