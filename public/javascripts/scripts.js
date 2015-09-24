@@ -31,9 +31,14 @@ $(function(){
           .text(function(d) { return d; })
       if (input.length > 0){
           var mean = d3.mean(input)
+          var max = d3.min(input)
           var avg = d3.select('.left').append('p')
               .attr('class','mean')
               .text('Your mean score on this course: ' + mean.toFixed(0))
+
+          var best = d3.select('.mean').append('p')
+              .attr('class','max')
+              .text('Your best score on this course: ' + max)
               
       }
     },
