@@ -34,6 +34,10 @@ table, tr, td, th {
   padding: 5px;
 }
 
+.left > table, tr, td, th {
+  border: solid black 2px;
+}
+
 form {
   display: block;
 }
@@ -105,7 +109,7 @@ img {
   fill: #B0E0E6;
 }
 */
-.bar:hover {
+/*.bar:hover {
   fill: black;
 }
 
@@ -122,4 +126,4 @@ img {
 
 .x.axis path {
   display: none;
-}
+}*/
