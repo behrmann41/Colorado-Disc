@@ -30,14 +30,6 @@ p.italic {
   font-style: italic;
 }
 
-table, tr, td, th {
-  padding: 5px;
-}
-
-.left > table, tr, td, th {
-  border: solid black 2px;
-}
-
 form {
   display: block;
 }

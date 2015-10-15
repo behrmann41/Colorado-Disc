@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  .container
+    h1= title
+    .text-center
+      include errors.jade
+    .col-md-7.col-md-offset-2
+      form.form-horizontal(action='/profile/login' method='POST')
+        .form-group
+          label.col-sm-2.control-label(for='email') Email:
+          .col-sm-10
+            input#email.form-control(type='email', name='email', placeholder='Email' required)
+        .form-group
+          label.col-sm-2.control-label(for='password') Password
+          .col-sm-10
+            input#password.form-control(type='password', name='password', placeholder='Password')
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-info(type='submit') Login

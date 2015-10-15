@@ -2,12 +2,16 @@ var express = require('express');
 var router = express.Router();
 var db = require('monk')('localhost/disc-courses');
 var discCourses = db.get('courses');
+var Users = db.get('users')
+var bcrypt = require('bcrypt')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+  var username = req.session.user
   discCourses.find({}, function (err, data){
     res.render('courses/index', { title: 'Colorado Disc',
-                                  allCourses: data 
+                                  allCourses: data,
+                                  user: username
                                 });
   })
 });

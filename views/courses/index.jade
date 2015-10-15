@@ -5,21 +5,36 @@ block content
       p 
 
       h2 List of Courses
-
-      table
-        thead
-          tr
-            th Name
-            th Location
-            th Hole Count
-            th Year Established
-        tbody
-          for course in allCourses
+      if (user)
+        table.table.table-striped.table-bordered
+          thead
             tr
-              td
-                a(href='/courses/' + course._id)= course.name
-              td= course.location
-              td= course.holecount
-              td= course.yearEst
+              th Name
+              th Location
+              th Hole Count
+              th Year Established
+          tbody
+            for course in allCourses
+              tr
+                td
+                  a(href='/courses/' + course._id)= course.name
+                td= course.location
+                td= course.holecount
+                td= course.yearEst
 
-      a(href='/courses/new') New Course 
+        a(href='/courses/new') New Course
+      if (!user)
+        table.table.table-striped.table-bordered
+          thead
+            tr
+              th Name
+              th Location
+              th Hole Count
+              th Year Established
+          tbody
+            for course in allCourses
+              tr
+                td= course.name
+                td= course.location
+                td= course.holecount
+                td= course.yearEst
