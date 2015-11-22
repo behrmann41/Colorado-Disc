@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/disc-courses');
+var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/disc-courses');
 var discCourses = db.get('courses');
 var Users = db.get('users')
 var bcrypt = require('bcrypt')
@@ -102,5 +102,3 @@ router.get('/logout', function (req, res, next){
 })
 
 module.exports = router;
-
-

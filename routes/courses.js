@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/disc-courses');
+var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/disc-courses');
 var discCourses = db.get('courses');
 var Users = db.get('users')
 var bcrypt = require('bcrypt')
@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
 
 router.get('/:id/newscore', function (req, res, next) {
   discCourses.findOne({_id: req.params.id}, function (err, data){
-    res.render('courses/newscore', {theCourse: data})  
+    res.render('courses/newscore', {theCourse: data})
   })
 })
 
