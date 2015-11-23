@@ -80,6 +80,7 @@ router.post('/login', function (req, res, next){
     res.render('users/login', { title: 'Login to Profile', errors: errors})
   } else {
     Users.findOne({ email: req.body.email }, function (err, user){
+      console.log(user)
       if (!user){
         errors.push('Invalid Username / Password')
         res.render('users/login', { title: 'Login to Profile', errors: errors})
