@@ -5,47 +5,47 @@ coursePath = course[1];
 $("#myHiddenId").val(coursePath)
 
 $(function(){
+  if (coursePath !== undefined){
+    $.ajax({
+      url: '/courses/' + coursePath + '/data',
+      method: 'GET',
+      success: function (data) {
+        var input = [];
+        var output = data[0].lastround
+        if (output !== undefined){
+          for (var i = 0; i < output.length; i++){
+            input.push(Number(output[i]))
+          }
+          var x = d3.scale.linear()
+            .domain([(d3.max(input) + 2), d3.min(input)])
+            .range([0, 420]);
 
-  $.ajax({
-    url: '/courses/' + coursePath + '/data',
-    method: 'GET',
-    success: function (data) {
-      console.log('success', data[0].lastround)
-      var input = [];
-      var output = data[0].lastround
-      for (var i = 0; i < output.length; i++){
-        input.push(Number(output[i]))
+          d3.select(".chart")
+              .selectAll("div")
+              .data(input)
+
+            .enter().append("div")
+              .attr('class', 'bar')
+              .style("width", function(d) { return x(d) + "px"; })
+              .text(function(d) { return d; })
+          if (input.length > 0){
+              var mean = d3.mean(input)
+              var max = d3.min(input)
+              var avg = d3.select('.left').append('p')
+                  .attr('class','mean')
+                  .text('Your mean score on this course: ' + mean.toFixed(0))
+
+              var best = d3.select('.mean').append('p')
+                  .attr('class','max')
+                  .text('Your best score on this course: ' + max)
+          }
+        }
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        console.log('error test', errorThrown);
       }
-      console.log(input);
-      var x = d3.scale.linear()
-        .domain([(d3.max(input) + 2), d3.min(input)])
-        .range([0, 420]);
-
-      d3.select(".chart")
-          .selectAll("div")
-          .data(input)
-          
-        .enter().append("div")
-          .attr('class', 'bar')
-          .style("width", function(d) { return x(d) + "px"; })
-          .text(function(d) { return d; })
-      if (input.length > 0){
-          var mean = d3.mean(input)
-          var max = d3.min(input)
-          var avg = d3.select('.left').append('p')
-              .attr('class','mean')
-              .text('Your mean score on this course: ' + mean.toFixed(0))
-
-          var best = d3.select('.mean').append('p')
-              .attr('class','max')
-              .text('Your best score on this course: ' + max)
-              
-      }
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-      console.log('error test', errorThrown);
-    }
-  });
+    });
+  }
 });
 
 // basic working bar chart
@@ -109,10 +109,3 @@ $(function(){
       //     .attr("y", function(d) { return y(d); })
       //     .attr("height", function(d) { return height - y(d); })
       //     .text(function(d) { return d; });
-
-
-
-
-
-
-     

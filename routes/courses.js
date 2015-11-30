@@ -36,9 +36,11 @@ router.get('/:id/newscore', function (req, res, next) {
 })
 
 router.get('/:id', function (req, res, next){
+  var username = req.session.user
   discCourses.findOne({_id: req.params.id}, function (err, data){
     res.render('courses/show', { title: 'Colorado Disc',
-                                 theCourse: data
+                                 theCourse: data,
+                                 user: username
                                 })
   })
 })
